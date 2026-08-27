@@ -1,0 +1,120 @@
+site_name: sustech-dev
+site_description: SUSTech endpoint catalog + behavior notes for agents wrapping sustech.edu.cn services.
+site_url: https://dumixthestpd.github.io/sustech-dev/
+repo_url: https://github.com/dumixthestpd/sustech-dev
+edit_uri: edit/main/
+
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  features:
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
+nav:
+  - Home: README.md
+  - Skill: SKILL.md
+  - Cross-cutting:
+    - URL conventions: SKILL.md
+    - Gotchas: references/cross-cutting-gotchas.md
+    - Authorizer patterns: references/authorizer-patterns.md
+    - Auth API surface: references/auth-api-surface.md
+    - API naming law: references/api-naming-law.md
+    - API surface design law: references/api-surface-design-law.md
+    - Module/UI split: references/architecture-module-vs-ui.md
+    - JS trap: references/js-trap.md
+    - Documents philosophy: references/documents-philosophy.md
+    - Doc shape (pointer vs content): references/doc-shape-pointer-vs-content.md
+    - Doc pitfalls: references/doc-pitfalls.md
+    - Things agents must never do: references/never-do.md
+  - TIS:
+    - TIS write endpoints (HAR): references/tis-write-endpoints-har-2026-08-09.md
+    - Verifying a TIS form fix: references/tis-form-fix-har-verify.md
+    - Field rules (catalog rows): references/tis-catalog-row-field-rules.md
+    - XSXK personal selection: references/tis-xsxk-personal-selection-2026-07-04.md
+    - Enrolled endpoint — slot dedup: references/tis-enrolled-slot-dedup-and-field-semantics-2026-08-09.md
+    - Enrolled endpoint shape: references/tis-enrolled-endpoint-shape-2026-08-09.md
+    - Bid panel: references/tis-bid-panel-locked-enrolled-2026-08-09.md
+    - kclbdm discovery: references/tis-kclbdm-discovery-2026-07-08.md
+    - Course selector solver: references/tis-course-selector-solver-2026-07-05.md
+    - Browser-side patterns: references/tis-browser-side-patterns-2026-08-06.md
+    - Current-week dead end: references/tis-current-week-dead-end-2026-06-28.md
+    - Cold start rate limit: references/tis-cold-start-rate-limit-2026-07-06.md
+    - Sync overlay + beforeunload: references/tis-sync-overlay-and-beforeunload-2026-08-10.md
+    - Course UI display rules: references/tis-course-ui-display-rules.md
+    - Course identity display: references/tis-course-identity-display.md
+    - Referenced subsystems: references/tis-referenced-subsystems.md
+  - TIS classroom (cdjy, cdkb):
+    - CDKB live occupancy: references/tis-cdkb-live-occupancy-2026-06-28.md
+    - CDJY form schema: references/tis-cdjy-form-schema-2026-06-29.md
+    - CDJY post-probe: references/tis-cdjy-post-probe-2026-06-29.md
+    - CDJY source code: references/tis-cdjy-source-code-2026-06-29.md
+    - CDJY source extraction recipe: references/tis-cdjy-source-code-extraction-recipe.md
+    - CDJY venue borrowing: references/tis-cdjy-venue-borrowing-2026-06-28.md
+    - Didian room search: references/tis-didian-room-search-2026-06-28.md
+  - TIS SPA reverse-engineering:
+    - SPA menu discovery: references/tis-spa-menu-discovery-2026-06-28.md
+    - SPA JS bundle walk recipe: references/spa-js-bundle-walk-recipe.md
+    - Discovery methodology: references/discovery-methodology.md
+    - Probe flakiness: references/tis-probe-flakiness.md
+  - Calendar:
+    - Module design: references/calendar-module-design.md
+    - Architecture: references/calendar-architecture-2026-07-11.md
+    - Data source: references/sustech-calendar-data-source.md
+    - PDF mapping: references/sustech-calendar-pdf-mapping-2026-07-09.md
+    - Calendar mechanics: references/academic-calendar.md
+  - Library + booking:
+    - Lib-booking IC: references/lib-booking-ic-2026-06-29.md
+    - Lib-booking policy: references/lib-booking-policy-2026-06-29.md
+    - Lib-booking wire fixes: references/lib-booking-wire-fixes-2026-06-30.md
+  - NCES:
+    - Anubis PoW: references/nces-anubis-pow-2026-07-05.md
+    - Scraper: references/nces-scraper-2026-07-05.md
+    - NCESnext Anubis: references/ncesnext-anubis-2026-07-05.md
+  - Blackboard:
+    - Module (BB endpoints inline elsewhere): https://github.com/dumixthestpd/sustech_survival/tree/main/src/sustech_survival/bb
+  - WebUI / architecture:
+    - WebUI architecture: references/webui-architecture-2026-07-06.md
+    - Async actions feedback: references/async-actions-visible-feedback-2026-08-09.md
+    - Schedule week display: references/schedule-week-display.md
+    - SUSTech brand assets: references/sustech-brand-assets.md
