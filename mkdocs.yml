@@ -111,6 +111,10 @@ nav:
     - Anubis PoW: references/nces-anubis-pow-2026-07-05.md
     - Scraper: references/nces-scraper-2026-07-05.md
     - NCESnext Anubis: references/ncesnext-anubis-2026-07-05.md
+  - Open-source mirror:
+    - Family, paths, training programs: references/mirror-cra-mirror-family-2026-10-01.md
+  - E-hall language tutoring (CLE):
+    - Reservation wire + rules: references/ehall-cle-reservation-2026-10-01.md
   - Blackboard:
     - Module (BB endpoints inline elsewhere): https://github.com/dumixthestpd/sustech_survival/tree/main/src/sustech_survival/bb
   - WebUI / architecture:
@@ -118,3 +122,7 @@ nav:
     - Async actions feedback: references/async-actions-visible-feedback-2026-08-09.md
     - Schedule week display: references/schedule-week-display.md
     - SUSTech brand assets: references/sustech-brand-assets.md
+  - Timeouts and guards:
+    - The timeout tree: references/net-timeout-tree-2026-10-01.md
+  - Fork layer, release, CI:
+    - sustech-cli fork layer: references/sustech-cli-fork-layer-2026-10-01.md

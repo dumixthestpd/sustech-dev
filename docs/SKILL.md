@@ -139,6 +139,25 @@ in `sustech_survival.<service>` and the blueprint wraps the result.
 - [Lib-booking policy](references/lib-booking-policy-2026-06-29.md)
 - [Lib-booking wire fixes](references/lib-booking-wire-fixes-2026-06-30.md)
 
+## E-hall language tutoring (CLE)
+
+Needs a browser-bootstrapped e-hall session (a bare CAS ticket gets 403).
+Booking posts the reservation model's **entire control set** (a subset is
+rejected with `#E2140600091`); cancellation is a **status write**, not a delete.
+
+- [CLE reservation wire + the rules it enforces](references/ehall-cle-reservation-2026-10-01.md)
+
+## Open-source mirror (mirrors.sustech.edu.cn)
+
+Public, unauthenticated, CC-BY-SA-4.0: course syllabi, undergraduate training
+programs, campus map, handbooks, directory listings. The law worth carrying
+everywhere: **a raw UTF-8 path is a 404** (nginx), `requests`/`fetch` encode
+silently, so an unencoded printed link works in a browser and dies in
+curl/wget/scripts. Training-program years 2019–2024级 are *directories* of
+per-major PDFs — resolve, never guess.
+
+- [CRA mirror — paths, listings, training programs](references/mirror-cra-mirror-family-2026-10-01.md)
+
 ## NCES
 
 - [NCES Anubis PoW](references/nces-anubis-pow-2026-07-05.md)
@@ -158,6 +177,25 @@ in `sustech_survival.<service>` and the blueprint wraps the result.
 - [Async actions — visible feedback](references/async-actions-visible-feedback-2026-08-09.md)
 - [Schedule week display](references/schedule-week-display.md)
 - [SUSTech brand assets](references/sustech-brand-assets.md)
+
+## Timeouts and guards
+
+One budget resolver per service (`sustech_survival._net` /
+`sustech-cli/src/core/net-config.ts`); no module-local default, and never
+resolve a budget at import time. The TS repo carries a grep gate whose single
+exception (`src/mcp/runner.ts`, a spawned local process) is written down in
+`docs/FORK-NOTES.md`.
+
+- [The timeout tree + the guards that keep it true](references/net-timeout-tree-2026-10-01.md)
+
+## Fork layer, release, CI
+
+Which commits are fork-local (`sustech-cli` keeps `mirror` + `cle`, which
+upstream **removed**), how a sync is done (merge the tag, then re-apply the
+layer), why the version reads `0.12.1-dumix.1`, and the discoverability contract
+(`--help` + `capabilities` + `describe` + command-metadata + consequences).
+
+- [The sustech-cli fork — fork-local layer, sync, versioning, CI](references/sustech-cli-fork-layer-2026-10-01.md)
 
 ## Things agents must never do
 

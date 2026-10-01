@@ -50,13 +50,31 @@ you find something wrong:
 
 ## Repo layout
 
+Everything the site renders lives under `docs/` (the repo root holds only
+`docs/` and `mkdocs.yml`):
+
 ```
 sustech-dev/
-├── README.md          this file (humans browsing the repo)
-├── SKILL.md           the skill definition (loaded by agents)
 ├── mkdocs.yml         mkdocs config — generates the docs site
-├── references/        detailed endpoint / behavior notes
-└── scripts/           reusable probes (run before designing new integrations)
+└── docs/
+    ├── README.md      this file (humans browsing the repo)
+    ├── SKILL.md       the skill definition (loaded by agents)
+    ├── references/    detailed endpoint / behavior notes
+    └── scripts/       reusable probes (run before designing new integrations)
+```
+
+## CI
+
+`.github/workflows/docs.yml` builds the site with `mkdocs build --strict` and
+deploys it to GitHub Pages on every push to `main` and every pull request.
+A second job runs `docs/scripts/checkdocs.py`, which needs no dependencies and
+catches the rot a strict build cannot see: a reference note that is not listed
+in `mkdocs.yml`, a dangling nav entry, a broken relative link, a `SKILL.md`
+whose frontmatter lost `name`/`description`, or a `captured:` date that is not
+`YYYY-MM-DD`. Run it locally before opening a PR:
+
+```bash
+python docs/scripts/checkdocs.py
 ```
 
 ## Source of truth

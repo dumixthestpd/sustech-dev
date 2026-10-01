@@ -1,8 +1,9 @@
-name: Deploy Docs to GitHub Pages
+name: Docs
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -15,6 +16,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Dependency-free content lint. `mkdocs build --strict` cannot see these: a
+  # note that never made it into the nav (invisible to readers), a dangling nav
+  # entry, a broken relative link, frontmatter that lost its trigger, or a
+  # malformed `captured:` date.
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python docs/scripts/checkdocs.py
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +40,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - run: pip install --quiet 'mkdocs-material>=9.5'
+      - run: pip install --quiet 'mkdocs-material>=9.5,<10'
       - run: mkdocs build --strict
 
       - uses: actions/upload-pages-artifact@v3
@@ -34,7 +48,10 @@ jobs:
           path: site
 
   deploy:
-    needs: build
+    # A pull request only has to prove the site still builds; publishing stays
+    # on main.
+    if: github.event_name != 'pull_request'
+    needs: [lint, build]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
