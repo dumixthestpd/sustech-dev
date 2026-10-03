@@ -162,7 +162,8 @@ per-major PDFs — resolve, never guess.
 
 - [NCES Anubis PoW](references/nces-anubis-pow-2026-07-05.md)
 - [NCES scraper](references/nces-scraper-2026-07-05.md)
-- [NCESnext Anubis](references/ncesnext-anubis-2026-07-05.md)
+- [NCESnext Anubis (superseded — gate was up)](references/ncesnext-anubis-2026-07-05.md)
+- [NCESnext public API (gate down, 2026-10-04)](references/ncesnext-public-api-2026-10-04.md)
 
 ## Blackboard
 

@@ -110,7 +110,8 @@ nav:
   - NCES:
     - Anubis PoW: references/nces-anubis-pow-2026-07-05.md
     - Scraper: references/nces-scraper-2026-07-05.md
-    - NCESnext Anubis: references/ncesnext-anubis-2026-07-05.md
+    - NCESnext Anubis (gate up): references/ncesnext-anubis-2026-07-05.md
+    - NCESnext public API (gate down): references/ncesnext-public-api-2026-10-04.md
   - Open-source mirror:
     - Family, paths, training programs: references/mirror-cra-mirror-family-2026-10-01.md
   - E-hall language tutoring (CLE):

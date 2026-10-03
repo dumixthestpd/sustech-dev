@@ -1,5 +1,13 @@
 # ncesnext.com — Anubis PoW challenge probe
 
+> **Superseded 2026-10-04**: the Anubis gate is gone and `/api/v1/*` now
+> serves plain JSON. Read
+> [ncesnext-public-api-2026-10-04.md](ncesnext-public-api-2026-10-04.md)
+> first; this note remains as the record of the gate-**up** posture (and the
+> warning that the posture flips). One fact below is now wrong: the header
+> check says iframe embedding is allowed — the site now sends
+> `X-Frame-Options: SAMEORIGIN`, so it isn't.
+
 > Verified 2026-07-05. Re-probe with
 > `bash scripts/probe_ncesnext.sh` before designing any new
 > ncesnext.com integration — the protection may change.
